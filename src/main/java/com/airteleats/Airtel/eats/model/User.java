@@ -2,6 +2,7 @@ package com.airteleats.Airtel.eats.model;
 
 import com.airteleats.Airtel.eats.dto.RestaurantDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class User {
 
     private String fullName;
     private String email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) //For security reason. I don't wanna show the password whenever I fetch the user object. But I wanna be able to generate a password for the user while signing them up.
     private String password;
     private USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
 
