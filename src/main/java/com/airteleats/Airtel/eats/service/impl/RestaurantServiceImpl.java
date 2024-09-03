@@ -31,6 +31,22 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public Restaurant createRestaurant(CreateRestaurantRequest req, User user) {
+        // Ensure address fields are populated
+        if (req.getAddress() != null) {
+            System.out.println("Street: " + req.getAddress().getStreetAddress());
+            System.out.println("City: " + req.getAddress().getCity());
+            System.out.println("State: " + req.getAddress().getPostalCode());
+            System.out.println("ZipCode: " + req.getAddress().getCountry());
+
+            if (req.getAddress().getStreetAddress() == null || req.getAddress().getCity()==null || req.getAddress().getPostalCode() == null || req.getAddress().getCountry() == null) {
+                throw new IllegalArgumentException("Address fields must not be null");
+            }
+
+        } else {
+            throw new IllegalArgumentException("Address object must not be null");
+        }
+
+
         Address address = addressRepository.save(req.getAddress());
 
         Restaurant restaurant = new Restaurant();
