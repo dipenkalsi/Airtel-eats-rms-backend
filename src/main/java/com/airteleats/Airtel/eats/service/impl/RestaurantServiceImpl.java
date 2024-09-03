@@ -43,6 +43,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurant.setOpeningHours(req.getOpeningHours());
         restaurant.setRegistrationDate(LocalDateTime.now());
         restaurant.setOwner(user);
+        restaurant.setOpen(true);
 
         return restaurantRepository.save(restaurant);
     }
@@ -65,6 +66,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public void deleteRestaurant(Long restaurantId) throws Exception {
         Restaurant restaurant = findRestaurantById(restaurantId);
+        restaurantRepository.deleteFromFavorites(restaurantId);
         restaurantRepository.delete(restaurant);
     }
 
@@ -108,10 +110,18 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurantDto.setTitle(restaurant.getName());
         restaurantDto.setId(restaurantId);
 
-        if(user.getFavorites().contains(restaurantDto)){
-            user.getFavorites().remove(restaurantDto);
+        boolean isFav = false;
+        List<RestaurantDto> favs = user.getFavorites();
+        for(RestaurantDto it: favs){
+            if(it.getId().equals(restaurantId)){
+                isFav = true;
+                break;
+            }
         }
-        else user.getFavorites().add(restaurantDto);
+        if(isFav){
+            favs.removeIf(fav->fav.getId().equals(restaurantId));
+        }
+        else favs.add(restaurantDto);
         userRepository.save(user);
         return restaurantDto;
     }
