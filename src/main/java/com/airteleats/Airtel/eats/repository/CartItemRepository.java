@@ -1,10 +1,11 @@
 package com.airteleats.Airtel.eats.repository;
 
-import com.airteleats.Airtel.eats.model.Cart;
+import com.airteleats.Airtel.eats.model.CartItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CartRepository extends JpaRepository<Cart, Long> {
-    public Cart findByCustomerId(Long userId);
+public interface CartItemRepository extends JpaRepository<CartItem, Long> {
+
+
 }
