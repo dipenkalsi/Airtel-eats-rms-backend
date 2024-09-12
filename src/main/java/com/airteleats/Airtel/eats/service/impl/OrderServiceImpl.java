@@ -91,7 +91,6 @@ public class OrderServiceImpl implements OrderService {
             return orderRespository.save(order);
         }
         else throw new Exception("Please choose a valid order status");
-        return null;
     }
 
     @Override
