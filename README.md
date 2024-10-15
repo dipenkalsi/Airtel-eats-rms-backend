@@ -5,3 +5,6 @@ This is the project I created during my internship @airtel. It is an online food
 - __CRUD Operations on FoodItems__: Restaurant owners can create and add FoodItems into their restaurant using this service along with assigning them a wide variety of categories like Veg/Non-veg, Seasonal/Non-seasonal etc. Customers can search and view FoodItems by name, by restaurant name or by categories.
 - __Ability to customize your order__: Customers can decide what special ingredients/toppings they want or which ones they don't want along with their order and restaurant owners can track the details corresponding to every order.
 - __Cart functionality and checkout__: Customers can add a FoodItem to their cart and proceed to checkout and place an order and track it's status. Restaurant owners can view and update the status of all orders placed into their restaurant.
+
+## ER Schema
+![alt text]([http://url/to/img.png](https://drive.google.com/file/d/1hEqE4rVR8nnTwz8FkJww1CmFvRPwSJhF/view?usp=sharing))
