@@ -7,4 +7,5 @@ This is the project I created during my internship @airtel. It is an online food
 - __Cart functionality and checkout__: Customers can add a FoodItem to their cart and proceed to checkout and place an order and track it's status. Restaurant owners can view and update the status of all orders placed into their restaurant.
 
 ## ER Schema
-![alt text]([http://url/to/img.png](https://drive.google.com/file/d/1hEqE4rVR8nnTwz8FkJww1CmFvRPwSJhF/view?usp=sharing))
+
+![airtel-eats-schema-diagram-dark drawio](https://github.com/user-attachments/assets/2573c405-7e3c-4c20-b5f9-334833d86ef9)
